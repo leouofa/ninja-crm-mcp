@@ -1,0 +1,50 @@
+{
+  "name": "ninja-crm-mcp",
+  "version": "1.0.0",
+  "description": "Model Context Protocol (MCP) server for Ninja CRM REST API v1",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "ninja-crm-mcp": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "openapi.json",
+    "README.md"
+  ],
+  "scripts": {
+    "typegen": "openapi-typescript openapi.json -o src/types/ninja-api.ts",
+    "build": "tsc",
+    "prepare": "npm run build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "start": "node dist/index.js"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ninja-crm",
+    "crm",
+    "leads",
+    "contacts",
+    "pipeline",
+    "outreach",
+    "sales"
+  ],
+  "author": "Leonid Medovyy",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.6.1",
+    "commander": "^13.1.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "openapi-typescript": "^7.6.1",
+    "rimraf": "^6.0.1",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.7"
+  }
+}
